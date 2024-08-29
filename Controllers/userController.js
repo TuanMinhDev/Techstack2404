@@ -2,7 +2,7 @@ import UserModel from "../Models/userModel.js";
 
 export const createNewUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email,phoneNumber, password } = req.body;
     console.log(req.body);
     const newUser = new UserModel({
       email: email,
@@ -15,6 +15,7 @@ export const createNewUser = async (req, res) => {
     res.status(200).json("Success");
   } catch (err) {
     res.status(500).json(err);
+    console.log(err);
   }
 };
 

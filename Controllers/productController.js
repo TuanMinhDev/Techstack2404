@@ -2,13 +2,14 @@ import ProductModel from "../Models/productModel.js";
 
 export const createNewProduct = async (req, res) => {
     try {
-        const {name, price, description, category, stock} = req.body;
+        const {name, price, description, category, stock, imageLink} = req.body; // Thêm imageLink vào đây
         const newProduct = new ProductModel({
             name: name,
             price: price,
             description: description,
             category: category,
-            stock: stock
+            stock: stock,
+            imageLink: imageLink
         });
         await newProduct.save();
         res.status(200).json('Product added successfully');
