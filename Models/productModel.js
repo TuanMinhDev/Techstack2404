@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const productSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -9,17 +8,10 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    description: {
-        type: String,
-        required: true,
-    },
     category: {
         type: String,
         required: true,
-    },
-    stock: {
-        type: Number,
-        required: true,
+        enum: ['shirt', 'pants', 'accessory', 'shoes'],
     },
     imageLink: { 
         type: String,

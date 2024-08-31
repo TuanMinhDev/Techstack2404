@@ -2,13 +2,11 @@ import ProductModel from "../Models/productModel.js";
 
 export const createNewProduct = async (req, res) => {
     try {
-        const {name, price, description, category, stock, imageLink} = req.body; // Thêm imageLink vào đây
+        const {name, price, category, imageLink} = req.body; // Thêm imageLink vào đây
         const newProduct = new ProductModel({
             name: name,
             price: price,
-            description: description,
             category: category,
-            stock: stock,
             imageLink: imageLink
         });
         await newProduct.save();
@@ -57,3 +55,13 @@ export const getAllProducts = async (req, res) => {
         res.status(500).json(err);
     }
 };
+export const getProductsByCategory = async (req, res) => {
+    try {
+        const { category } = req.params;
+        const products = await ProductModel.find({ category });
+        res.status(200).json(products);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+};
+
