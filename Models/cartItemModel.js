@@ -10,7 +10,11 @@ const cartItemSchema = new mongoose.Schema({
         type: Number,
         required: true,
         default: 1
+    },
+    size: {
+        type: String,
+        required: true 
     }
-}, {timestamps: true});
+}, { timestamps: true });
 
 export default mongoose.model("CartItem", cartItemSchema);

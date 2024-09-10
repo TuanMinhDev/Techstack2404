@@ -9,11 +9,11 @@ const userSchema = new mongoose.Schema(
     },
     name: {
       type: String,
-      trim: true, // Removes any leading or trailing whitespace
+      trim: true,
     },
     phoneNumber: {
       type: String,
-      trim: true, // Removes any leading or trailing whitespace
+      trim: true,
     },
     password: {
       type: String,
