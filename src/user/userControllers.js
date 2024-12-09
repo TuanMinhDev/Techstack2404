@@ -61,8 +61,8 @@ export const Login = async (req, res) => {
 };
 export const GetByIdUser = async (req, res) => {
   try {
-    const { id } = req.params;
-    const user = await userModel.findById(id);
+    const  userId  = req.userId; 
+    const user = await userModel.findById(userId);
     res.status(200).json({ message: "User", user });
   } catch (error) {
     res.status(500).json(error);

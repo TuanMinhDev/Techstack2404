@@ -1,5 +1,5 @@
 import express from "express";
-import { verifyToken, verifyTokenIsAdmin } from "../user/userMiddleware.js";
+import { verifyTokenIsAdmin } from "../user/userMiddleware.js";
 import {
   CreateProduct,
   GetAllProduct,
@@ -9,9 +9,9 @@ import {
 } from "./productControllers.js";
 
 const router = express.Router();
-router.post("/create", CreateProduct);
+router.post("/create",verifyTokenIsAdmin, CreateProduct);
 router.get("/", GetAllProduct);
 router.get("/:id", GetProductById);
-router.delete("/:id",  DeleteProduct);
-router.put("/:id",  UpdateProduct);
+router.delete("/:id",verifyTokenIsAdmin,  DeleteProduct);
+router.put("/:id",verifyTokenIsAdmin,  UpdateProduct);
 export default router;

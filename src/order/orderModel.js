@@ -7,9 +7,9 @@ const OrderSchema = new mongoose.Schema({
         required:true,
     },
     bill: {
-        billId: {
+        checkout: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Bill",
+            ref: "Checkout",
             required: true,
         }
     }
